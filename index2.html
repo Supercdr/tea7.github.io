@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<title>介绍</title>
+	</head>
+		<style>
+			html,body {
+				width: 640px;
+				height:1030px;
+				margin:0 auto;
+				overflow-x: hidden;
+			}
+			#main{
+				overflow:hidden;
+			}
+			#bg{
+				background-image: url("contact/bg3.jpg");
+			}
+			.door{
+				width:640px;
+				position:absolute;
+				transition:all 2s ease;
+			}
+			#intro{
+				margin-top:-100px;
+				margin-left:-80px;
+				width:640px;
+				height:1030px;
+				opacity:0;
+				transition:all 0.7s ease 0.3s;
+			}
+			#input{
+				position:absolute;
+			}
+			#txt{
+				width:250px;
+				height:40px;
+				border:1px solid black;
+				position:absolute;
+				top:340px;
+				left:240px;
+				opacity:0;
+			}
+			#enter{
+				width:640px;
+				position:absolute;
+				top:10px;
+				opacity:0;
+			}
+		</style>
+	<body>
+		<div id="main">
+			<div id="bg">
+				<img id="left" class="door" src="contact/left.png">
+				<img id="right" class="door" src="contact/right.png">
+				<img id="intro" src="contact/intro.png">
+				<input type="text" name="请输入你的名字" id="txt" />
+				<img id="enter" src="make/入肆.png">
+			</div>
+		</div>
+    </body>
+	<script type="text/javascript">
+		var left=document.getElementById("left");
+		var right=document.getElementById("right");
+		var intro=document.getElementById("intro");
+		window.onload=function(){
+			left.style.marginLeft=-400+"px";
+			right.style.marginLeft=400+"px";
+			intro.style.opacity=1;
+			intro.style.width=700+"px";
+			intro.style.marginLeft=20+"px";
+			//开始触屏
+			document.addEventListener("touchstart",function(e){
+				intro.src="make/入场券.png";
+				var input=document.createElement("img");
+				input.src="make/空白框.png";
+				input.style.position="absolute";
+				document.getElementById("txt").style.opacity=1;
+				document.getElementById("enter").style.opacity=1;
+			},false);
+			document.getElementById("enter").onclick=function(){
+				window.location.href="index3.html";
+			}
+		}
+	</script>
+</html>
+
